@@ -71,6 +71,10 @@ function App() {
             <CharacterCard
               name = "Miles Morales"
               pic = "https://i.imgur.com/56chgMj.png"
+              desc1 = "Definitely Not Spiderman"
+              desc2 = "'Lanky Puberty Boy' vibes"
+              desc3 = "Can't do it on demand"
+              desc4 =  "Elite music taste"
             />
           </Grid>
           <Grid
@@ -81,6 +85,10 @@ function App() {
             <CharacterCard
               name = "Moana Waialiki"
               pic = "https://i.imgur.com/zuscNPl.png"
+              desc1 = "Glass half full kinda gal"
+              desc2 = "Lackluster chicken mom"
+              desc3 = "Spaces out looking at water"
+              desc4 = "Never really knows why"
             />
           </Grid>
           <Grid
@@ -91,6 +99,10 @@ function App() {
             <CharacterCard
               name = "Hiro Hamada"
               pic = "https://i.imgur.com/SaYqUTP.png"
+              desc1 = "Saved by a flying pillow. Again."
+              desc2 = "Has epic bedhead"
+              desc3 = "Hiro = Hiccup, Baymax = Toothless"
+              desc4 = "Neeeeeeeeeeeeeeeerd"
             />
           </Grid>
         </Grid>

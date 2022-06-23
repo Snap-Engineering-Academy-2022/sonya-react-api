@@ -23,16 +23,16 @@ export default function CharacterCard(props) {
       <CardContent sx={{ pt: 0 }}>
         <ul>
             <Typography component="li">
-              Definitely Not Spiderman
+              {props.desc1}
             </Typography>
             <Typography component="li">
-              "Lanky Puberty Boy" vibes
+              {props.desc2}
             </Typography>
             <Typography component="li">
-              Can't do it on demand
+              {props.desc3}
             </Typography>
             <Typography component="li">
-              Elite music taste
+              {props.desc4}
             </Typography>
         </ul>
       </CardContent>
