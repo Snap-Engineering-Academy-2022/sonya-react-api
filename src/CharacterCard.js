@@ -13,27 +13,19 @@ export default function CharacterCard(props) {
       <CardMedia
         component="img"
         height="350px"
-        image={props.pic}
+        image={ props.pic }
       />
       <CardHeader
-        title={props.name}
+        title={props.title}
         titleTypographyProps={{ align: 'center' }}
         sx={{ mt: 1 }}
       />
       <CardContent sx={{ pt: 0 }}>
         <ul>
-            <Typography component="li">
-              {props.desc1}
-            </Typography>
-            <Typography component="li">
-              {props.desc2}
-            </Typography>
-            <Typography component="li">
-              {props.desc3}
-            </Typography>
-            <Typography component="li">
-              {props.desc4}
-            </Typography>
+          {props.description.map((sentence) =>
+          <Typography component="li">
+            {sentence}
+          </Typography>)}
         </ul>
       </CardContent>
       <CardActions>

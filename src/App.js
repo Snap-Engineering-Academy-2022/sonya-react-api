@@ -11,10 +11,25 @@ import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import './App.css';
-// import characters from './protagonists.json'
+// import './App.css';
+import characters from './protagonists.json'
+import {useState} from 'react'
 
 function App() {
+  let [animalData, setAnimalData] = useState(null)
+
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch("https://zoo-animal-api.herokuapp.com/animals/rand/3", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      animalData = result
+    })
+    .catch(error => console.log('error', error));
+
   return (
     <div className="App">
       <CssBaseline />
@@ -32,7 +47,10 @@ function App() {
             href="#" 
             variant="outlined" 
             sx={{ my: 1, mx: 1.5 }}
-            onClick={() => alert("Boop!")}
+            onClick={() => {
+              alert("Boop!")
+              setAnimalData(animalData)
+            }}
           >
             Button
           </Button>
@@ -63,49 +81,25 @@ function App() {
           justifyContent="center"
           alignItems="flex-start"
         >
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <CharacterCard
-              name = "Miles Morales"
-              pic = "https://i.imgur.com/56chgMj.png"
-              desc1 = "Definitely Not Spiderman"
-              desc2 = "'Lanky Puberty Boy' vibes"
-              desc3 = "Can't do it on demand"
-              desc4 =  "Elite music taste"
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <CharacterCard
-              name = "Moana Waialiki"
-              pic = "https://i.imgur.com/zuscNPl.png"
-              desc1 = "Glass half full kinda gal"
-              desc2 = "Lackluster chicken mom"
-              desc3 = "Spaces out looking at water"
-              desc4 = "Never really knows why"
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <CharacterCard
-              name = "Hiro Hamada"
-              pic = "https://i.imgur.com/SaYqUTP.png"
-              desc1 = "Saved by a flying pillow. Again."
-              desc2 = "Has epic bedhead"
-              desc3 = "Hiro = Hiccup, Baymax = Toothless"
-              desc4 = "Neeeeeeeeeeeeeeeerd"
-            />
-          </Grid>
+          {
+            characters.map((elements) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  md={4}
+                >
+                  <CharacterCard
+                    title={elements.title}
+                    pic={elements.pic}
+                    description={elements.description}
+                  />
+                </Grid>
+              )
+            })
+          }
         </Grid>
+      <p>{animalData}</p>
       </Container>
     </div>
   );
